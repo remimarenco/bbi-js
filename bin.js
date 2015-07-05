@@ -7,6 +7,7 @@
 // bin.js general binary data support
 //
 
+define(function(require, exports, module) {
 "use strict";
 
 if (typeof(require) !== 'undefined') {
@@ -289,3 +290,4 @@ if (typeof(module) !== 'undefined') {
         readFloat: this.readFloat
     }
 }
+});

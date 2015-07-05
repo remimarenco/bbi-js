@@ -7,6 +7,7 @@
 // utils.js: odds, sods, and ends.
 //
 
+define(function(require, exports, module) {
 "use strict";
 
 if (typeof(require) !== 'undefined') {
@@ -493,3 +494,4 @@ if (typeof(module) !== 'undefined') {
         AMINO_ACID_TRANSLATION: AMINO_ACID_TRANSLATION
     }
 }
+});

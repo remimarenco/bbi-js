@@ -7,6 +7,7 @@
 // das.js: queries and low-level data model.
 //
 
+define(function(require, exports, module) {
 "use strict";
 
 if (typeof(require) !== 'undefined') {
@@ -20,7 +21,7 @@ if (typeof(require) !== 'undefined') {
 
 var dasLibErrorHandler = function(errMsg) {
     alert(errMsg);
-}
+};
 var dasLibRequestQueue = new Array();
 
 function DASSegment(name, start, end, description) {
@@ -854,3 +855,4 @@ if (typeof(module) !== 'undefined') {
         coordsMatch: coordsMatch
     };
 }
+});
