@@ -3,6 +3,7 @@
   <head>
     <title>BigWig Test</title>
     <script type="text/javascript" src="./require.js"></script>
+    <script type="text/javascript" src="./jquery.min.js"></script>
   </head>
 
   <body>
@@ -10,8 +11,25 @@
   </body>
 
 <script type="text/javascript">
-    require(['bigwig'], function(bigwig) {
-      console.log('test');
+    require(['bigwig', 'bin'], function(bigwig, bin) {
+      bbURI = './test.bigwig';
+      var cb, err;
+      bigwig.makeBwg(new bin.URLFetchable(bbURI),
+                function(_bb, _err) {
+                    bb = _bb;
+                    err = _err;
+                    cb = true;
+                    
+                    $('body').append("<h3>Information about test.bigwig" + "</h3>");
+                    $('body').append("Version: " + bb.version + "<br>");
+                    $('body').append("Number of Zoom Levels: " + bb.numZoomLevels + "<br>");
+                    $('body').append("Number of bases covered: " + bigwig._globalStats.basesCovered +
+                        "<br/>");
+                    $('body').append("Min: " + bigwig._globalStats.scoreMin + "<br>");
+                    $('body').append("Max: " + bigwig._globalStats.scoreMax + "<br>");
+                });
+
+      //console.log('test');
     });
     /*var bigwig = require(['all'], function(all) {
       console.log('test');
