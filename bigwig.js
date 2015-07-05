@@ -189,6 +189,7 @@ define(function(require, exports, module) {
       var cirFobStartFetch = function(offset, fr, level, attempts) {
           var length = fr.max() - fr.min();
           thisB.bwg.data.slice(fr.min(), fr.max() - fr.min()).fetch(function(resultBuffer) {
+            debugger;
               for (var i = 0; i < offset.length; ++i) {
                   if (fr.contains(offset[i])) {
                       cirFobRecur2(resultBuffer, offset[i] - fr.min(), level);

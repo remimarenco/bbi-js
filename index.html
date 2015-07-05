@@ -23,10 +23,14 @@
                     $('body').append("<h3>Information about test.bigwig" + "</h3>");
                     $('body').append("Version: " + bb.version + "<br>");
                     $('body').append("Number of Zoom Levels: " + bb.numZoomLevels + "<br>");
-                    $('body').append("Number of bases covered: " + bigwig._globalStats.basesCovered +
-                        "<br/>");
-                    $('body').append("Min: " + bigwig._globalStats.scoreMin + "<br>");
-                    $('body').append("Max: " + bigwig._globalStats.scoreMax + "<br>");
+                    bb.readWigData(12, 25357722, 25403865, function(data){
+                      $('body').append("readWigData: ");
+                      data.forEach(function(dasFeature){
+                        $('body').append(dasFeature.score);
+                        $('body').append(", ");
+                      });
+                      $('body').append("<br>");
+                    });
                 });
 
       //console.log('test');
