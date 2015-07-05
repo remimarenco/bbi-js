@@ -32,7 +32,7 @@ define(function(require, exports, module) {
       var bin = require('./bin');
       var readInt = bin.readInt;
 
-      var jszlib = require('jszlib');
+      var jszlib = require('./inflate');
       var jszlib_inflate_buffer = jszlib.inflateBuffer;
       var arrayCopy = jszlib.arrayCopy;
   }
