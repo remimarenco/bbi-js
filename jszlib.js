@@ -14,6 +14,8 @@
 // Shared constants
 //
 
+define(function(require, exports, module) {
+
 var MAX_WBITS=15; // 32K LZ77 window
 var DEF_WBITS=MAX_WBITS;
 var MAX_MEM_LEVEL=9;
@@ -2160,3 +2162,4 @@ if (typeof(module) !== 'undefined') {
     arrayCopy: arrayCopy
   };
 }
+});

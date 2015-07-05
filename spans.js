@@ -6,7 +6,7 @@
 //
 // spans.js: JavaScript Intset/Location port.
 //
-
+define(function(require, exports, module) {
 "use strict";
 
 
@@ -254,3 +254,4 @@ if (typeof(module) !== 'undefined') {
         _rangeOrder: _rangeOrder
     }
 }
+});

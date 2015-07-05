@@ -11,16 +11,12 @@ define(function(require, exports, module) {
 
   "use strict";
 
-  console.log("Hi!");
-
   if (typeof(require) !== 'undefined') {
       var spans = require('./spans');
       var Range = spans.Range;
       var union = spans.union;
       var intersection = spans.intersection;
-      console.log("It worked!");
       
-
       var das = require('./das');
       var DASFeature = das.DASFeature;
       var DASGroup = das.DASGroup;
@@ -32,7 +28,7 @@ define(function(require, exports, module) {
       var bin = require('./bin');
       var readInt = bin.readInt;
 
-      var jszlib = require('./inflate');
+      var jszlib = require('./jszlib');
       var jszlib_inflate_buffer = jszlib.inflateBuffer;
       var arrayCopy = jszlib.arrayCopy;
   }
