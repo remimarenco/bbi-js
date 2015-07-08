@@ -24,7 +24,6 @@
                     $('body').append("Version: " + bb.version + "<br>");
                     $('body').append("Number of Zoom Levels: " + bb.numZoomLevels + "<br>");
                     bb.readWigData(12, 25357722, 25403865, function(data){
-                      $('body').append("Length: "+data.length+"<br>");
                       $('body').append("readWigData: ");
                       $('body').append($.map(data, function(obj){return JSON.stringify(obj.score)}).join(' '));
                       $('body').append("<br>");
