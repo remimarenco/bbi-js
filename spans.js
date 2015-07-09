@@ -202,33 +202,6 @@ function intersection(s0, s1) {
     }
 }
 
-function coverage(s) {
-    var tot = 0;
-    var rl = s.ranges();
-    for (var ri = 0; ri < rl.length; ++ri) {
-        var r = rl[ri];
-        tot += (r.max() - r.min() + 1);
-    }
-    return tot;
-}
-
-
-
-function rangeOrder(a, b)
-{
-    if (a.min() < b.min()) {
-        return -1;
-    } else if (a.min() > b.min()) {
-        return 1;
-    } else if (a.max() < b.max()) {
-        return -1;
-    } else if (b.max() > a.max()) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
 function _rangeOrder(a, b)
 {
     if (a._min < b._min) {
@@ -249,8 +222,6 @@ if (typeof(module) !== 'undefined') {
         Range: Range,
         union: union,
         intersection: intersection,
-        coverage: coverage,
-        rangeOver: rangeOrder,
         _rangeOrder: _rangeOrder
     }
 }
