@@ -2,8 +2,8 @@
 <meta charset="utf-8">
   <head>
     <title>BigWig Test</title>
-    <script type="text/javascript" src="./require.js"></script>
-    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript" src="../utils/require.js"></script>
+    <script type="text/javascript" src="../utils/ui/jquery.min.js"></script>
   </head>
 
   <body>
@@ -11,8 +11,9 @@
   </body>
 
 <script type="text/javascript">
-    require(['bigwig', 'bin'], function(bigwig, bin) {
-      bbURI = './test.bigwig';
+    require(['./main/bigwig', './utils/bin'], function(bigwig, bin) {
+      bbURI = './data/test.bigwig';
+      
       var cb, err;
       bigwig.makeBwg(new bin.URLFetchable(bbURI),
                 function(_bb, _err) {
@@ -32,9 +33,4 @@
 
       //console.log('test');
     });
-    /*var bigwig = require(['all'], function(all) {
-      console.log('test');
-    });
-    */
-    //var bigWigDataProvider = new BigWigDataProvider({url: "./test.bigwig"});
 </script>

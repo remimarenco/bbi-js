@@ -12,23 +12,25 @@ define(function(require, exports, module) {
   "use strict";
 
   if (typeof(require) !== 'undefined') {
-      var spans = require('./spans');
+      // TODO: Use require to allow a more maintenable library access
+      var utilPath = '~/utils/';
+      var spans = require(utilPath+'spans');
       var Range = spans.Range;
       var union = spans.union;
       var intersection = spans.intersection;
       
-      var das = require('./das');
+      var das = require(utilPath+'das');
       var DASFeature = das.DASFeature;
       var DASGroup = das.DASGroup;
       
 
-      var utils = require('./utils');
+      var utils = require(utilPath+'utils');
       var shallowCopy = utils.shallowCopy;
       
-      var bin = require('./bin');
+      var bin = require(utilPath+'bin');
       var readInt = bin.readInt;
 
-      var jszlib = require('./jszlib');
+      var jszlib = require(utilPath+'jszlib');
       var jszlib_inflate_buffer = jszlib.inflateBuffer;
       var arrayCopy = jszlib.arrayCopy;
   }
