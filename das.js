@@ -32,19 +32,6 @@ function coordsMatch(c1, c2) {
 }
 
 //
-// DAS 1.6 sequence command
-// Do we need an option to fall back to the dna command?
-//
-
-function DASSequence(name, start, end, alpha, seq) {
-    this.name = name;
-    this.start = start;
-    this.end = end;
-    this.alphabet = alpha;
-    this.seq = seq;
-}
-
-//
 // DAS 1.6 features command
 //
 
@@ -54,11 +41,6 @@ function DASFeature() {
 function DASGroup(id) {
     if (id)
         this.id = id;
-}
-
-function DASLink(desc, uri) {
-    this.desc = desc;
-    this.uri = uri;
 }
 
 function DASAlignment(type) {
@@ -86,17 +68,6 @@ function parseGradient(grad) {
     }
 
     return makeColourSteps(steps, stops, colors);
-}
-
-//
-// sources command
-// 
-
-function DASRegistry(uri, opts)
-{
-    opts = opts || {};
-    this.uri = uri;
-    this.opts = opts;   
 }
 
 //
@@ -135,21 +106,6 @@ function childElementOf(element)
         } while (child != null);
     }
     return null;
-}
-
-
-function dasLinksOf(element)
-{
-    var links = new Array();
-    var maybeLinkChilden = element.getElementsByTagName('LINK');
-    for (var ci = 0; ci < maybeLinkChilden.length; ++ci) {
-        var linkXML = maybeLinkChilden[ci];
-        if (linkXML.parentNode == element) {
-            links.push(new DASLink(linkXML.firstChild ? linkXML.firstChild.nodeValue : 'Unknown', linkXML.getAttribute('href')));
-        }
-    }
-    
-    return links;
 }
 
 function dasNotesOf(element)
@@ -248,9 +204,6 @@ if (typeof(module) !== 'undefined') {
     module.exports = {
         DASGroup: DASGroup,
         DASFeature: DASFeature,
-        DASRegistry: DASRegistry,
-        DASSequence: DASSequence,
-        DASLink: DASLink,
 
         isDasBooleanTrue: isDasBooleanTrue,
         isDasBooleanNotFalse: isDasBooleanNotFalse,
