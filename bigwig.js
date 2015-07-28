@@ -11,19 +11,32 @@ define(function(require, exports, module) {
 
   "use strict";
 
+  // Copied from das.js so that das.js no longer a requirement
+  function DASFeature() {
+  }
+
+  function DASGroup(id) {
+      if (id)
+          this.id = id;
+  }
+
+  // Copied from utils so that utils.js no longer a requirement. Can replace with $.extend() or _.extend()
+  function shallowCopy(o) {
+      var n = {};
+      for (var k in o) {
+          n[k] = o[k];
+      }
+      return n;
+  }
+
+  // TODO: Is salting useful/necessary? If not, can replace URLFetchable and then remove bin.js and sha1.js
+  // requirements.
+
   if (typeof(require) !== 'undefined') {
       var spans = require('./spans');
       var Range = spans.Range;
       var union = spans.union;
       var intersection = spans.intersection;
-      
-      var das = require('./das');
-      var DASFeature = das.DASFeature;
-      var DASGroup = das.DASGroup;
-      
-
-      var utils = require('./utils');
-      var shallowCopy = utils.shallowCopy;
       
       var bin = require('./bin');
       var readInt = bin.readInt;
