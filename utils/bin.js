@@ -9,13 +9,20 @@
 
 define(function(require, exports, module) {
 "use strict";
+    
+// Copied from utils.js so that utils.js is no longer a requirement. Can replace with $.extend() or _.extend()
+function shallowCopy(o) {
+    var n = {};
+    for (var k in o) {
+        n[k] = o[k];
+    }
+    return n;
+}
 
 if (typeof(require) !== 'undefined') {
-    var utilPath = '~/utils/';
-    var utils = require(utilPath+'utils');
-    var shallowCopy = utils.shallowCopy;
 
-    var sha1 = require(utilPath+'sha1');
+    var sha1 = require('../utils/sha1');
+
     var b64_sha1 = sha1.b64_sha1;
 }
 
